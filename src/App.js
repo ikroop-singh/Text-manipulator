@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
@@ -37,7 +36,7 @@ function App() {
     <Navbar title="TextUtils" about="About"mode={mode} func={toggleMode}/>
     <Alert alert={alert}/>
     <Textform showalert={showalert} heading="Write text to analyze below" mode={mode}/>
-    {/* <About mode={mode}/> */}
+    {/* <About/> */}
     </>
   );
 }
