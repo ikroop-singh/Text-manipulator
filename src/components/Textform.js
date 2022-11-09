@@ -42,16 +42,16 @@ export default function Textform(props) {
                 <textarea name="" id="textarea" value={text} onChange={handleonChange} style={{backgroundColor:props.mode==='dark'?'rgb(1 16 1)':'white',color:props.mode==='dark'?'white':'black'}} cols="30" rows="10" className="form-control"></textarea>
             </div>
             
-            <button className="btn btn-success my-3" onClick={handleupClick}>Convert to uppercase</button>
-            <button className="btn btn-success my-3 mx-3" onClick={handlelowClick}>Convert to lowercase</button>
-            <button className="btn btn-success my-3 mx-3" onClick={handleclearall}>Clear all</button>
-            <button className="btn btn-success my-3 mx-3" onClick={copyHandler}>Copy text</button>
+            <button disabled ={text.length===0} className="btn btn-success my-3 mx-3" onClick={handleupClick}>Convert to uppercase</button>
+            <button disabled ={text.length===0} className="btn btn-success my-3 mx-3" onClick={handlelowClick}>Convert to lowercase</button>
+            <button disabled ={text.length===0} className="btn btn-success my-3 mx-3" onClick={handleclearall}>Clear all</button>
+            <button disabled ={text.length===0} className="btn btn-success my-3 mx-3" onClick={copyHandler}>Copy text</button>
         </div>
 
         <div className="container" style={{color:props.mode==='dark'?'white':'black'}}>
             <h2>Text summary</h2>
-            <p>{text.split(" ").length-1}words and {text.length}characters </p>
-            <p>{0.008*text.split(" ").length} minutes takes to read the text </p>
+            <p>{text.split(" ").filter((element)=>{return element.length!==0}).length}words and {text.split('').filter((element)=>{return element!==' '}).length}characters </p>
+            <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} minutes takes to read the text </p>
             <h2>Preview </h2>
             <p>{text.length>0?text:'Write something to preview it.'}</p>
         </div>
